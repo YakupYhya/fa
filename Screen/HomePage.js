@@ -19,8 +19,9 @@ export default function HomePage({navigation}) {
         onPress={()=> navigation.navigate("Besinler")}>
           <Text style={styles.buttonText}>Besin Tarifleri</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Spor Hareketleri</Text>
+        <TouchableOpacity style={styles.button}
+        onPress={()=> navigation.navigate("Antrenman")}>
+          <Text style={styles.buttonText}>Antrenmanlar</Text>
         </TouchableOpacity>
       </View>
     </View>
