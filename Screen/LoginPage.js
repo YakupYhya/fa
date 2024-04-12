@@ -10,7 +10,7 @@ import {
  } from 'react-native';
 
  import React,{ useState} from 'react';
-
+ 
 export default function LoginPage({navigation}) {
 
     const [name, setName] = useState("")

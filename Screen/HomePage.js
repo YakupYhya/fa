@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
-export default function HomePage() {
+export default function HomePage({navigation}) {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.profileButton}>
@@ -15,7 +15,8 @@ export default function HomePage() {
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>İndeks Hesapla</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button}
+        onPress={()=> navigation.navigate("Besinler")}>
           <Text style={styles.buttonText}>Besin Tarifleri</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}>
