@@ -1,102 +1,73 @@
-import { StatusBar } from 'expo-status-bar';
-import { 
-  StyleSheet, 
-  Text, 
-  View,
-  TextInput,
-  Pressable,
-  Image,
-  TouchableOpacity
- } from 'react-native';
+import React from 'react';
+import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
- import React,{ useState} from 'react';
-
-export default function HomePage({navigation}) {
-
-    const [name, setName] = useState("")
-    const [passord,setPassword]=useState("")
-
+export default function HomePage() {
   return (
     <View style={styles.container}>
-     
-        <Image 
-
-        style={{width:300,height:250,marginVertical:70 }}
+      <TouchableOpacity style={styles.profileButton}>
+        <Text style={styles.buttonText}>Profilim</Text>
+      </TouchableOpacity>
+      <Image
         source={require('./resimler/lol2.png')}
-        /> 
-
-       <TextInput
-       placeholder='Kullanıcı Adını Giriniz'  
-       style={styles.textInputStyle}
-       onChangeText={setName}
-       value={name}
-       />
-       
-       <Text  style={ styles.TextStyle} ></Text>
-
-       <TextInput 
-       placeholder='Şifre Giriniz'
-       style={styles.textInputStyle}
-       onChangeText={setPassword}
-       value={passord} 
-       secureTextEntry={true}   />
-
-
-       
-       <TouchableOpacity
-              onPress={()=> navigation.navigate('Second')}
-              style={styles.button}
-       >
-        <Text style={styles.butonText}> Giriş </Text>
-       </TouchableOpacity>
-
-      <StatusBar style="auto" />
+        style={styles.image}
+      />
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>İndeks Hesapla</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Besin Tarifleri</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Spor Hareketleri</Text>
+        </TouchableOpacity>
+      </View>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor:"#f7fff7",
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    textInputStyle:{
-      width:'70%',
-      height:50,
-      borderRadius:40,
-      marginVertical:1,
-      textAlign:"center",
-      fontWeight:"bold",
-      backgroundColor:"#d8f3dc",
-      
-    },
-  
-    button:{
-      borderWidth:0,
-      width:"40%",
-      height:40,
-      alignItems:'center',
-      justifyContent:"center",
-      borderRadius:50,
-      marginVertical:50,
-      backgroundColor:"#C1FF72",
-      opacity:0.9,
-  
-  
-    },
-    butonText:{
-        fontWeight:"bold",
-        fontSize:25,
-        color:"#018B49",
-  
-      
-    },
-  
-    TextStyle:{
-      fontWeight:"800",
-      fontSize:20,
-      color:"white",
-    },
-  });
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f7fff7',
+  },
+  profileButton: {
+    position: 'absolute',
+    top: 40,
+    right: 20,
+    backgroundColor:"green",
+    padding: 10,
+    borderRadius: 5,
+  },
+  buttonText: {
+    textAlign:"center",
+    alignItems:"center",
+    justifyContent:"center",
+    color: '#fff',
+    fontSize: 20,
+    fontWeight:"bold"
+  },
+  image: {
+    width: 200,
+    height: 200,
+    resizeMode: 'contain',
+    position: 'absolute',
+    top: 100, // Üst kenara 50 piksel mesafe ekledik
+    alignSelf: 'center', // Resmi ortalamak için
+  },
+  buttonContainer: {
+    position: 'absolute',
+    bottom: 150,
+    width: '100%', // Butonların yatayda tam ortalanması için
+    paddingHorizontal: 20, // Butonlar arasındaki yatay boşluklar için
+  },
+  button: {
+    backgroundColor: '#2ecc71',
+    padding: 15,
+    borderRadius: 10,
+    marginVertical: 10,
+    width: '100%', // Butonların yatayda tam ortalanması için
+  },
+});
