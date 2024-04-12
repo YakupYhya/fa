@@ -6,6 +6,7 @@ import LoginPage from './Screen/LoginPage';
 import HomePage from './Screen/HomePage';
 import BesinlerPage from './Screen/BesinlerPage';
 import AntrenmanPage from './Screen/AntrenmanPage';
+import ProfilPage from './Screen/ProfilPage';
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -17,7 +18,9 @@ export default function App() {
         <Stack.Screen name="Home" options={{headerShown: false}} component={HomePage}/>
         <Stack.Screen name="Besinler"  component={BesinlerPage}/>
         <Stack.Screen name="Antrenman"  component={AntrenmanPage}/>
+        <Stack.Screen name="Profil"  component={ProfilPage}/>
 
+        
       </Stack.Navigator>
     </NavigationContainer>
   );

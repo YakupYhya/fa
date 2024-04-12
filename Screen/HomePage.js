@@ -4,7 +4,8 @@ import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 export default function HomePage({navigation}) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.profileButton}>
+      <TouchableOpacity style={styles.profileButton}
+      onPress={()=> navigation.navigate("Profil")}>
         <Text style={styles.buttonText}>Profilim</Text>
       </TouchableOpacity>
       <Image
