@@ -13,7 +13,8 @@ export default function HomePage({navigation}) {
         style={styles.image}
       />
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button}
+        onPress={()=> navigation.navigate("Indeks")}>
           <Text style={styles.buttonText}>İndeks Hesapla</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}
