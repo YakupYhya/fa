@@ -58,20 +58,20 @@ const styles = StyleSheet.create({
     height: 200,
     resizeMode: 'contain',
     position: 'absolute',
-    top: 100, // Üst kenara 50 piksel mesafe ekledik
-    alignSelf: 'center', // Resmi ortalamak için
+    top: 100, 
+    alignSelf: 'center', 
   },
   buttonContainer: {
     position: 'absolute',
     bottom: 150,
-    width: '100%', // Butonların yatayda tam ortalanması için
-    paddingHorizontal: 20, // Butonlar arasındaki yatay boşluklar için
+    width: '100%', 
+    paddingHorizontal: 20, 
   },
   button: {
     backgroundColor: '#2ecc71',
     padding: 15,
     borderRadius: 10,
     marginVertical: 10,
-    width: '100%', // Butonların yatayda tam ortalanması için
+    width: '100%', 
   },
 });

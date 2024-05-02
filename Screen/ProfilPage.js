@@ -7,17 +7,15 @@ const ProfilPage = () => {
   const [isEditing, setIsEditing] = useState(false);
 
   const handleGuncelle = () => {
-    // Güncelleme işlemleri burada yapılacak
     console.log("Kilo güncellendi:", kilo);
     console.log("Boy güncellendi:", boy);
     setIsEditing(false); // Güncelleme yapıldıktan sonra düzenleme modunu kapat
-    // Kullanıcıya bir geri bildirim gösterme işlemleri de eklenebilir
   };
 
   return (
     <View style={styles.container}>
       <Image
-        source={require('./resimler/lol.png')} // Resim yolunu buraya ekleyin
+        source={require('./resimler/lol.png')} 
         style={styles.profileImage}
       />
       <Text style={styles.header}>Profil Bilgileri</Text>
