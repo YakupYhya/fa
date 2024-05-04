@@ -9,6 +9,7 @@ import AntrenmanPage from './Screen/AntrenmanPage';
 import ProfilPage from './Screen/ProfilPage';
 import IndeksPage from './Screen/IndeksPage';
 import { firebase } from '@react-native-firebase/database';
+import SifreUnuttumPage from './Screen/SifreUnuttumPage';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDsA9EBrSbCRg-n_PFz08J_JHgziZtSiH4",
@@ -34,6 +35,8 @@ export default function App() {
         <Stack.Screen name="Antrenman"  component={AntrenmanPage}/>
         <Stack.Screen name="Profil"  component={ProfilPage}/>
         <Stack.Screen name="Indeks"  component={IndeksPage}/>
+        <Stack.Screen name="SifreUnuttum"  component={SifreUnuttumPage}/>
+
 
 
         

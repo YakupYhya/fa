@@ -44,7 +44,7 @@ export default function LoginPage({navigation}) {
           <Text style={styles.buttonText}> Giriş </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
+        <TouchableOpacity onPress={() => navigation.navigate("SifreUnuttum")}>
           <Text style={styles.bottomOptionText}>Şifremi Unuttum</Text>
         </TouchableOpacity>
 
