@@ -48,7 +48,7 @@ export default function LoginPage({navigation}) {
           <Text style={styles.bottomOptionText}>Şifremi Unuttum</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+        <TouchableOpacity onPress={() => navigation.navigate('KayıtOl')}>
           <Text style={styles.bottomOptionText}>Kayıt Ol</Text>
         </TouchableOpacity>
 

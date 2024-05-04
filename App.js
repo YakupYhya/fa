@@ -10,7 +10,7 @@ import ProfilPage from './Screen/ProfilPage';
 import IndeksPage from './Screen/IndeksPage';
 import { firebase } from '@react-native-firebase/database';
 import SifreUnuttumPage from './Screen/SifreUnuttumPage';
-
+import KayıtOlPage from './Screen/KayıtOlPage';
 const firebaseConfig = {
   apiKey: "AIzaSyDsA9EBrSbCRg-n_PFz08J_JHgziZtSiH4",
   authDomain: "fitnessapp-f2fa2.firebaseapp.com",
@@ -36,6 +36,8 @@ export default function App() {
         <Stack.Screen name="Profil"  component={ProfilPage}/>
         <Stack.Screen name="Indeks"  component={IndeksPage}/>
         <Stack.Screen name="SifreUnuttum"  component={SifreUnuttumPage}/>
+        <Stack.Screen name="KayıtOl"  component={KayıtOlPage}/>
+
 
 
 
