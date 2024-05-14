@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { initializeApp } from '@react-native-firebase/app'; 
 
 import LoginPage from './Screen/LoginPage';
 import HomePage from './Screen/HomePage';
@@ -9,10 +8,9 @@ import BesinlerPage from './Screen/BesinlerPage';
 import AntrenmanPage from './Screen/AntrenmanPage';
 import ProfilPage from './Screen/ProfilPage';
 import IndeksPage from './Screen/IndeksPage';
+import { firebase } from '@react-native-firebase/database';
 import SifreUnuttumPage from './Screen/SifreUnuttumPage';
 import KayıtOlPage from './Screen/KayıtOlPage';
-
-// Firebase yapılandırma bilgilerini burada tanımlandı
 const firebaseConfig = {
   apiKey: "AIzaSyDsA9EBrSbCRg-n_PFz08J_JHgziZtSiH4",
   authDomain: "fitnessapp-f2fa2.firebaseapp.com",
@@ -23,8 +21,7 @@ const firebaseConfig = {
   measurementId: "G-29XDN3L1VM"
 };
 
-// Firebase uygulamasını başlat
-const app = initializeApp(firebaseConfig);
+
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -40,6 +37,11 @@ export default function App() {
         <Stack.Screen name="Indeks"  component={IndeksPage}/>
         <Stack.Screen name="SifreUnuttum"  component={SifreUnuttumPage}/>
         <Stack.Screen name="KayıtOl"  component={KayıtOlPage}/>
+
+
+
+
+        
       </Stack.Navigator>
     </NavigationContainer>
   );

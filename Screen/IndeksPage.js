@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native';
 import React, { useState } from 'react';
 
 const IndeksPage = () => {
@@ -6,6 +6,7 @@ const IndeksPage = () => {
   const [boy, setBoy] = useState('');
   const [indeks, setIndeks] = useState('');
   const [durum, setDurum] = useState('');
+  const [showOptions, setShowOptions] = useState(false); // Butonların görünürlüğünü kontrol etmek için
 
   const hesaplaIndeks = () => {
     if (kilo === '' || boy === '') {
@@ -27,10 +28,24 @@ const IndeksPage = () => {
     } else {
       setDurum('Obez');
     }
+
+    setShowOptions(true); // Sonuçları göster ve butonları göster
+  };
+
+  const besinOner = () => {
+    // Besin önerisi butonuna basıldığında yapılacak işlemler
+    // Örneğin bir modal açılabilir ya da yeni bir sayfaya yönlendirilebilir.
+    alert('Besin Önerileri');
+  };
+
+  const hareketOner = () => {
+    // Hareket önerisi butonuna basıldığında yapılacak işlemler
+    // Örneğin bir modal açılabilir ya da yeni bir sayfaya yönlendirilebilir.
+    alert('Hareket Önerileri');
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.header}>Vücut Kitle İndeksi Hesaplama</Text>
 
       <View style={styles.inputContainer}>
@@ -62,9 +77,19 @@ const IndeksPage = () => {
         <View style={styles.resultContainer}>
           <Text style={styles.result}>Vücut Kitle İndeksi: {indeks}</Text>
           <Text style={styles.durum}>Durum: {durum}</Text>
+          {showOptions && (
+            <View style={styles.optionButtonsContainer}>
+              <TouchableOpacity style={styles.optionButton} onPress={besinOner}>
+                <Text style={styles.optionButtonText}>Besin Öner</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.optionButton} onPress={hareketOner}>
+                <Text style={styles.optionButtonText}>Hareket Öner</Text>
+              </TouchableOpacity>
+            </View>
+          )}
         </View>
       )}
-    </View>
+    </ScrollView>
   );
 };
 
@@ -74,7 +99,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#f7fff7',
-
+    paddingBottom: 50, // Ekranın altında boşluk bırakmak için
   },
   header: {
     fontWeight:"bold",
@@ -115,6 +140,7 @@ const styles = StyleSheet.create({
   },
   resultContainer: {
     alignItems: 'center',
+    marginTop: 20, // Sonuçlardan butona olan boşluğu ayarlamak için
   },
   result: {
     marginTop: 20,
@@ -126,6 +152,22 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 18,
     color:"#018B49",
+  },
+  optionButtonsContainer: {
+    flexDirection: 'row',
+    marginTop: 20,
+  },
+  optionButton: {
+    marginHorizontal: 10,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    backgroundColor: '#C1FF72',
+    borderRadius: 10,
+  },
+  optionButtonText: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    color: '#018B49',
   },
 });
 
