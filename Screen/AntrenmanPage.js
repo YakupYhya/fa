@@ -41,6 +41,8 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     paddingHorizontal: 20, 
+    backgroundColor:"#f7fff7",
+
   },
   itemContainer: {
     flexDirection: 'row', 
