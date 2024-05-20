@@ -1,34 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ScrollView, View, Text, Image, StyleSheet } from 'react-native';
-
-const images = [
-  { id: 1, path: require('./resimler/lol2.png'), info: 'Resim 1 ile ilgili bilgiler...' },
-  { id: 2, path: require('./resimler/lol2.png'), info: 'Resim 2 ile ilgili bilgiler...' },
-  { id: 3, path: require('./resimler/lol2.png'), info: 'Resim 3 ile ilgili bilgiler...' },
-  { id: 1, path: require('./resimler/lol2.png'), info: 'Resim 1 ile ilgili bilgiler...' },
-  { id: 2, path: require('./resimler/lol2.png'), info: 'Resim 2 ile ilgili bilgiler...' },
-  { id: 3, path: require('./resimler/lol2.png'), info: 'Resim 3 ile ilgili bilgiler...' },
-  { id: 1, path: require('./resimler/lol2.png'), info: 'Resim 1 ile ilgili bilgiler...' },
-  { id: 2, path: require('./resimler/lol2.png'), info: 'Resim 2 ile ilgili bilgiler...' },
-  { id: 3, path: require('./resimler/lol2.png'), info: 'Resim 3 ile ilgili bilgiler...' },
-  { id: 1, path: require('./resimler/lol2.png'), info: 'Resim 1 ile ilgili bilgiler...' },
-  { id: 2, path: require('./resimler/lol2.png'), info: 'Resim 2 ile ilgili bilgiler...' },
-  { id: 3, path: require('./resimler/lol2.png'), info: 'Resim 3 ile ilgili bilgiler...' },
-];
+import { firestore } from './firebaseConfig';
+import { collection, getDocs } from 'firebase/firestore';
 
 export default function BesinlerPage() {
+  const [besinler, setBesinler] = useState([]);
+
+  useEffect(() => {
+    const fetchBesinler = async () => {
+      try {
+        const besinlerCollectionRef = collection(firestore, 'Besin');
+        const besinlerSnapshot = await getDocs(besinlerCollectionRef);
+        const besinlerData = besinlerSnapshot.docs.map(doc => doc.data());
+        setBesinler(besinlerData);
+      } catch (error) {
+        console.error("Error fetching besinler: ", error);
+      }
+    };
+
+    fetchBesinler();
+  }, []);
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {images.map(image => (
-        <View key={image.id} style={styles.itemContainer}>
-          <View style={styles.imageContainer}>
-            <Image
-              source={image.path} // Objeden alınan resim yolu belirtiliyor
-              style={styles.image}
-            />
-          </View>
+      {besinler.map((besin, index) => (
+        <View key={index} style={styles.itemContainer}>
+          <Image
+            source={{ uri: besin.resim }}
+            style={styles.image}
+          />
           <View style={styles.infoContainer}>
-            <Text style={styles.infoText}>{image.info}</Text>
+            <Text style={styles.infoText}>Besin Adı: {besin.adi}</Text>
+            <Text style={styles.infoText}>Tarif: {besin.tarif}</Text>
           </View>
         </View>
       ))}
@@ -39,30 +42,31 @@ export default function BesinlerPage() {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    paddingHorizontal: 20, 
-    backgroundColor:"#f7fff7",
-
+    paddingHorizontal: 20,
+    backgroundColor: "#f7fff7",
   },
   itemContainer: {
-    flexDirection: 'row', 
-    alignItems: 'center', 
-    justifyContent: 'flex-start', 
-    marginVertical: 10, 
-  },
-  imageContainer: {
-    flex: 1, 
-    marginRight: 10, 
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 10,
+    borderRadius: 10,
+    overflow: 'hidden', // Resim köşelerinin dışarı taşmasını önler
+    backgroundColor: '#fff', // Beyaz arkaplan ekler
+    elevation: 3, // Gölge efekti ekler
   },
   image: {
     width: 100,
     height: 100,
-    resizeMode: 'cover', 
+    resizeMode: 'cover',
+    borderTopLeftRadius: 10, // Sol üst köşe
+    borderTopRightRadius: 10, // Sağ üst köşe
   },
   infoContainer: {
-    flex: 2, 
+    flex: 1,
+    padding: 10,
   },
   infoText: {
     fontSize: 16,
-    textAlign: 'justify', 
+    marginBottom: 5, // Yazılar arasına boşluk ekler
   },
 });
