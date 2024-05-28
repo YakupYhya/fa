@@ -12,8 +12,8 @@ export default function BesinOnerPage({navigation}) {
       <View style={styles.buttonContainer}>
 
         <TouchableOpacity style={styles.button}
-        onPress={()=> navigation.navigate("BesinÖner")}>
-          <Text style={styles.buttonText}>Besin Tarifleri</Text>
+        onPress={()=> navigation.navigate("KiloVermek")}>
+          <Text style={styles.buttonText}>Kilo vermek için besinler</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}
         onPress={()=> navigation.navigate("Besinler")}>

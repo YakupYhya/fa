@@ -12,6 +12,7 @@ import { firebase } from '@react-native-firebase/database';
 import SifreUnuttumPage from './Screen/SifreUnuttumPage';
 import KayıtOlPage from './Screen/KayıtOlPage';
 import BesinOnerPage from './Screen/BesinOnerPage';
+import KiloVermekPage from './Screen/KiloVermekPage'; 
 
 
 
@@ -30,6 +31,8 @@ export default function App() {
         <Stack.Screen name="SifreUnuttum"  component={SifreUnuttumPage}/>
         <Stack.Screen name="KayıtOl"  component={KayıtOlPage}/>
         <Stack.Screen name="BesinÖner"  component={BesinOnerPage}/>
+        <Stack.Screen name="KiloVermek"  component={KiloVermekPage}/>
+
 
 
 
