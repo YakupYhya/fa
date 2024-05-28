@@ -1,29 +1,23 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
-export default function HomePage({navigation}) {
+export default function BesinOnerPage({navigation}) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.profileButton}
-      onPress={()=> navigation.navigate("Profil")}>
-        <Text style={styles.buttonText}>Profilim</Text>
-      </TouchableOpacity>
+
       <Image
         source={require('./resimler/lol2.png')}
         style={styles.image}
       />
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}
-        onPress={()=> navigation.navigate("Indeks")}>
-          <Text style={styles.buttonText}>İndeks Hesapla</Text>
-        </TouchableOpacity>
+
         <TouchableOpacity style={styles.button}
         onPress={()=> navigation.navigate("BesinÖner")}>
           <Text style={styles.buttonText}>Besin Tarifleri</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}
-        onPress={()=> navigation.navigate("Antrenman")}>
-          <Text style={styles.buttonText}>Antrenmanlar</Text>
+        onPress={()=> navigation.navigate("Besinler")}>
+          <Text style={styles.buttonText}>Kilo almak için besinler</Text>
         </TouchableOpacity>
       </View>
     </View>

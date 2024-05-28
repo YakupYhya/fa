@@ -11,6 +11,7 @@ import IndeksPage from './Screen/IndeksPage';
 import { firebase } from '@react-native-firebase/database';
 import SifreUnuttumPage from './Screen/SifreUnuttumPage';
 import KayıtOlPage from './Screen/KayıtOlPage';
+import BesinOnerPage from './Screen/BesinOnerPage';
 
 
 
@@ -28,6 +29,8 @@ export default function App() {
         <Stack.Screen name="Indeks"  component={IndeksPage}/>
         <Stack.Screen name="SifreUnuttum"  component={SifreUnuttumPage}/>
         <Stack.Screen name="KayıtOl"  component={KayıtOlPage}/>
+        <Stack.Screen name="BesinÖner"  component={BesinOnerPage}/>
+
 
 
 
