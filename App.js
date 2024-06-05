@@ -28,13 +28,13 @@ export default function App() {
         <Stack.Screen name="Besinler"  component={BesinlerPage}/>
         <Stack.Screen name="Antrenman"  component={AntrenmanPage}/>
         <Stack.Screen name="Profil"  component={ProfilPage}/>
-        <Stack.Screen name="Indeks"  component={IndeksPage}/>
-        <Stack.Screen name="SifreUnuttum"  component={SifreUnuttumPage}/>
-        <Stack.Screen name="KayıtOl"  component={KayıtOlPage}/>
-        <Stack.Screen name="BesinÖner"  component={BesinOnerPage}/>
-        <Stack.Screen name="KiloVermek"  component={KiloVermekPage}/>
-        <Stack.Screen name="AntrenmanZayıf"  component={AntrenmanZayıfPage}/>
-        <Stack.Screen name="AntrenmanKilolu"  component={AntrenmanKıloluPage}/>
+        <Stack.Screen name="Indeks"  component={IndeksPage} />
+        <Stack.Screen name="SifreUnuttum"  component={SifreUnuttumPage} options={{ headerTitle: ' ', headerBackTitleVisible: true }}/>
+        <Stack.Screen name="KayıtOl"  component={KayıtOlPage} options={{ headerTitle: ' ', headerBackTitleVisible: true }}/>
+        <Stack.Screen name="BesinÖner"  component={BesinOnerPage} options={{ headerTitle: ' ', headerBackTitleVisible: true }}/>
+        <Stack.Screen name="KiloVermek"  component={KiloVermekPage} options={{ headerTitle: ' ', headerBackTitleVisible: true }}/>
+        <Stack.Screen name="AntrenmanZayıf"  component={AntrenmanZayıfPage}   options={{ headerTitle: ' ', headerBackTitleVisible: true }}/>
+        <Stack.Screen name="AntrenmanKilolu"  component={AntrenmanKıloluPage} options={{ headerTitle: ' ', headerBackTitleVisible: true }}/>
 
 
 
