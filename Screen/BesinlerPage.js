@@ -30,8 +30,9 @@ export default function BesinlerPage() {
             style={styles.image}
           />
           <View style={styles.infoContainer}>
-            <Text style={styles.infoText}>Besin Adı: {besin.adi}</Text>
-            <Text style={styles.infoText}>Tarif: {besin.tarif}</Text>
+            <Text style={styles.infoTextTitle}>{besin.adi}</Text>
+            <Text style={styles.infoText}>Hazırlık: {besin.hazırlık}</Text>
+            <Text style={styles.infoText}>Malzemeler: {besin.tarif}</Text>
           </View>
         </View>
       ))}
@@ -43,30 +44,41 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     paddingHorizontal: 20,
+    paddingVertical: 10,
     backgroundColor: "#f7fff7",
   },
   itemContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: 10,
-    borderRadius: 10,
-    overflow: 'hidden', // Resim köşelerinin dışarı taşmasını önler
-    backgroundColor: '#fff', // Beyaz arkaplan ekler
-    elevation: 3, // Gölge efekti ekler
+    borderRadius: 15,
+    overflow: 'hidden',
+    backgroundColor: '#ffffff',
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
   },
   image: {
-    width: 100,
-    height: 100,
+    width: 120,
+    height: 120,
     resizeMode: 'cover',
-    borderTopLeftRadius: 10, // Sol üst köşe
-    borderTopRightRadius: 10, // Sağ üst köşe
+    marginVertical: 5,
   },
   infoContainer: {
     flex: 1,
-    padding: 10,
+    padding: 15,
+  },
+  infoTextTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 5,
   },
   infoText: {
     fontSize: 16,
-    marginBottom: 5, // Yazılar arasına boşluk ekler
+    color: '#666',
+    marginBottom: 5,
   },
 });

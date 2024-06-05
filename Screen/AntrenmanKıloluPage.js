@@ -3,13 +3,13 @@ import { ScrollView, View, Text, Image, StyleSheet } from 'react-native';
 import { firestore } from './firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 
-export default function KiloVermekPage() {
+export default function AntrenmanKıloluPage() {
   const [besinler, setBesinler] = useState([]);
 
   useEffect(() => {
     const fetchBesinler = async () => {
       try {
-        const besinlerCollectionRef = collection(firestore, 'Kilo');
+        const besinlerCollectionRef = collection(firestore, 'AntrenmanKilolu');
         const besinlerSnapshot = await getDocs(besinlerCollectionRef);
         const besinlerData = besinlerSnapshot.docs.map(doc => doc.data());
         setBesinler(besinlerData);
@@ -31,8 +31,8 @@ export default function KiloVermekPage() {
           />
           <View style={styles.infoContainer}>
             <Text style={styles.infoTextTitle}>{besin.adi}</Text>
-            <Text style={styles.infoText}>Hazırlık: {besin.hazırlık}</Text>
-            <Text style={styles.infoText}>Malzemeler:{besin.tarif}</Text>
+            <Text style={styles.infoText}>{besin.yapılıs}</Text>
+            <Text style={styles.infoText}>{besin.örnek}</Text>
           </View>
         </View>
       ))}
@@ -82,3 +82,4 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+

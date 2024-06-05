@@ -1,69 +1,71 @@
 import React from 'react';
-import { ScrollView, View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
-const images = [
-  { id: 1, path: require('./resimler/lol2.png'), info: 'Resim 1 ile ilgili bilgiler...' },
-  { id: 2, path: require('./resimler/lol2.png'), info: 'Resim 2 ile ilgili bilgiler...' },
-  { id: 3, path: require('./resimler/lol2.png'), info: 'Resim 3 ile ilgili bilgiler...' },
-  { id: 1, path: require('./resimler/lol2.png'), info: 'Resim 1 ile ilgili bilgiler...' },
-  { id: 2, path: require('./resimler/lol2.png'), info: 'Resim 2 ile ilgili bilgiler...' },
-  { id: 3, path: require('./resimler/lol2.png'), info: 'Resim 3 ile ilgili bilgiler...' },
-  { id: 1, path: require('./resimler/lol2.png'), info: 'Resim 1 ile ilgili bilgiler...' },
-  { id: 2, path: require('./resimler/lol2.png'), info: 'Resim 2 ile ilgili bilgiler...' },
-  { id: 3, path: require('./resimler/lol2.png'), info: 'Resim 3 ile ilgili bilgiler...' },
-  { id: 1, path: require('./resimler/lol2.png'), info: 'Resim 1 ile ilgili bilgiler...' },
-  { id: 2, path: require('./resimler/lol2.png'), info: 'Resim 2 ile ilgili bilgiler...' },
-  { id: 3, path: require('./resimler/lol2.png'), info: 'Resim 3 ile ilgili bilgiler...' },
-  // İstediğiniz kadar resim ekleyebilirsiniz
-];
-
-export default function AntrenmanPage() {
+export default function AntrenmanPage({navigation}) {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      {images.map(image => (
-        <View key={image.id} style={styles.itemContainer}>
-          <View style={styles.imageContainer}>
-            <Image
-              source={image.path} 
-              style={styles.image}
-            />
-          </View>
-          <View style={styles.infoContainer}>
-            <Text style={styles.infoText}>{image.info}</Text>
-          </View>
-        </View>
-      ))}
-    </ScrollView>
+    <View style={styles.container}>
+
+      <Image
+        source={require('./resimler/lol2.png')}
+        style={styles.image}
+      />
+      <View style={styles.buttonContainer}>
+
+        <TouchableOpacity style={styles.button}
+        onPress={()=> navigation.navigate("AntrenmanKilolu")}>
+          <Text style={styles.buttonText}>Kilo vermek Antrenman</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button}
+        onPress={()=> navigation.navigate("AntrenmanZayıf")}>
+          <Text style={styles.buttonText}>Kilo almak için Antrenman</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    paddingHorizontal: 20, 
-    backgroundColor:"#f7fff7",
-
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f7fff7',
   },
-  itemContainer: {
-    flexDirection: 'row', 
-    alignItems: 'center', 
-    justifyContent: 'flex-start', 
-    marginVertical: 10, 
+  profileButton: {
+    position: 'absolute',
+    top: 40,
+    right: 20,
+    backgroundColor:"green",
+    padding: 10,
+    borderRadius: 5,
   },
-  imageContainer: {
-    flex: 1, 
-    marginRight: 10, 
+  buttonText: {
+    textAlign:"center",
+    alignItems:"center",
+    justifyContent:"center",
+    color: '#fff',
+    fontSize: 20,
+    fontWeight:"bold"
   },
   image: {
-    width: 100,
-    height: 100,
-    resizeMode: 'cover', 
+    width: 200,
+    height: 200,
+    resizeMode: 'contain',
+    position: 'absolute',
+    top: 100, 
+    alignSelf: 'center', 
   },
-  infoContainer: {
-    flex: 2, 
+  buttonContainer: {
+    position: 'absolute',
+    bottom: 150,
+    width: '100%', 
+    paddingHorizontal: 20, 
   },
-  infoText: {
-    fontSize: 16,
-    textAlign: 'justify', 
+  button: {
+    backgroundColor: '#2ecc71',
+    padding: 15,
+    borderRadius: 10,
+    marginVertical: 10,
+    width: '100%', 
   },
 });

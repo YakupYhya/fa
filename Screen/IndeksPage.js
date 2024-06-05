@@ -1,7 +1,7 @@
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native';
 import React, { useState } from 'react';
 
-const IndeksPage = () => {
+const IndeksPage = ({navigation}) => {
   const [kilo, setKilo] = useState('');
   const [boy, setBoy] = useState('');
   const [indeks, setIndeks] = useState('');
@@ -33,15 +33,19 @@ const IndeksPage = () => {
   };
 
   const besinOner = () => {
-    // Besin önerisi butonuna basıldığında yapılacak işlemler
-    // Örneğin bir modal açılabilir ya da yeni bir sayfaya yönlendirilebilir.
-    alert('Besin Önerileri');
+    if (durum === 'Zayıf' || durum === 'Normal Kilolu') {
+      navigation.navigate("Besinler");
+    } else if (durum === 'Kilolu' || durum === 'Obez') {
+      navigation.navigate("KiloVermek");
+    }
   };
 
   const hareketOner = () => {
-    // Hareket önerisi butonuna basıldığında yapılacak işlemler
-    // Örneğin bir modal açılabilir ya da yeni bir sayfaya yönlendirilebilir.
-    alert('Hareket Önerileri');
+    if (durum === 'Zayıf' || durum === 'Normal Kilolu') {
+      navigation.navigate("AntrenmanZayıf");
+    } else if (durum === 'Kilolu' || durum === 'Obez') {
+      navigation.navigate("AntrenmanKilolu");
+    }
   };
 
   return (

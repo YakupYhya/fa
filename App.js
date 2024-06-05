@@ -13,7 +13,8 @@ import SifreUnuttumPage from './Screen/SifreUnuttumPage';
 import KayıtOlPage from './Screen/KayıtOlPage';
 import BesinOnerPage from './Screen/BesinOnerPage';
 import KiloVermekPage from './Screen/KiloVermekPage'; 
-
+import AntrenmanKıloluPage from './Screen/AntrenmanKıloluPage';
+import AntrenmanZayıfPage from './Screen/AntrenmanZayıfPage';
 
 
 export default function App() {
@@ -32,13 +33,11 @@ export default function App() {
         <Stack.Screen name="KayıtOl"  component={KayıtOlPage}/>
         <Stack.Screen name="BesinÖner"  component={BesinOnerPage}/>
         <Stack.Screen name="KiloVermek"  component={KiloVermekPage}/>
+        <Stack.Screen name="AntrenmanZayıf"  component={AntrenmanZayıfPage}/>
+        <Stack.Screen name="AntrenmanKilolu"  component={AntrenmanKıloluPage}/>
 
 
 
-
-
-
-        
       </Stack.Navigator>
     </NavigationContainer>
   );
